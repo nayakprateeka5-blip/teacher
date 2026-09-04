@@ -1,0 +1,765 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Teacher's Day - Sharan Sir</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, #24105c, transparent 45%),
+                linear-gradient(135deg, #050014, #120038, #001b36);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Background stars */
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.15;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        /* Main */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        /* Teacher Icon */
+        .teacher-icon {
+            width: 125px;
+            height: 125px;
+            margin: auto;
+            border-radius: 50%;
+
+            background: linear-gradient(135deg,
+                    #ffd700,
+                    #ffae00);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 58px;
+
+            box-shadow:
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(255, 174, 0, 0.3);
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Small heading */
+        .tag {
+            margin-top: 30px;
+            font-size: 16px;
+            letter-spacing: 5px;
+            color: #ffd700;
+            text-transform: uppercase;
+        }
+
+        /* Main heading */
+        h1 {
+            margin-top: 15px;
+
+            font-size: clamp(45px, 8vw, 85px);
+
+            background:
+                linear-gradient(90deg,
+                    #ffffff,
+                    #ffd700,
+                    #ff9d00);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Teacher name */
+        .sir-name {
+            margin-top: 12px;
+            font-size: clamp(32px, 5vw, 58px);
+            color: white;
+        }
+
+        .sir-name strong {
+            background:
+                linear-gradient(90deg,
+                    #ffffff,
+                    #ffd700);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Typing text */
+        .typing {
+            margin-top: 22px;
+            font-size: 21px;
+            color: #d8d8ff;
+            min-height: 35px;
+        }
+
+        /* Message card */
+        .message {
+            margin: 55px auto;
+            max-width: 850px;
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.07);
+
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.4);
+
+            transition: 0.4s;
+        }
+
+        .message:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .message h2 {
+            color: #ffd700;
+            margin-bottom: 22px;
+            font-size: 32px;
+        }
+
+        .message p {
+            font-size: 19px;
+            line-height: 1.8;
+            color: #eeeeff;
+        }
+
+        .message strong {
+            color: #ffd700;
+        }
+
+        /* Skills */
+        .section-title {
+            font-size: 36px;
+            margin: 70px 0 35px;
+            color: #ffd700;
+        }
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 22px;
+        }
+
+        .skill {
+            padding: 28px 15px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.07);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.15);
+
+            transition:
+                transform 0.4s,
+                box-shadow 0.4s,
+                border-color 0.4s;
+        }
+
+        .skill:hover {
+            transform:
+                translateY(-10px) scale(1.03);
+
+            box-shadow:
+                0 0 35px rgba(255, 215, 0, 0.3);
+
+            border-color:
+                #ffd700;
+        }
+
+        .skill-icon {
+            font-size: 42px;
+            margin-bottom: 14px;
+        }
+
+        .skill h3 {
+            font-size: 20px;
+        }
+
+        .skill p {
+            margin-top: 8px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Quote */
+        .quote {
+            margin: 75px auto 30px;
+
+            max-width: 800px;
+
+            font-size: 28px;
+
+            line-height: 1.6;
+
+            font-style: italic;
+
+            color: #fff;
+        }
+
+        .quote span {
+            color: #ffd700;
+        }
+
+        /* Button */
+        .celebrate {
+            margin-top: 35px;
+
+            padding: 16px 38px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            color: #160044;
+
+            background:
+                linear-gradient(90deg,
+                    #ffd700,
+                    #ffae00);
+
+            box-shadow:
+                0 0 25px rgba(255, 215, 0, 0.5);
+
+            transition: 0.3s;
+        }
+
+        .celebrate:hover {
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 50px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 75px;
+
+            padding: 28px;
+
+            color: #999;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #ffd700;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+
+            top: -30px;
+
+            width: 10px;
+            height: 10px;
+
+            animation:
+                fall 3s linear forwards;
+
+            z-index: 10;
+
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+
+            to {
+                transform:
+                    translateY(110vh) rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+
+            .container {
+                padding-top: 40px;
+            }
+
+            .teacher-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 45px;
+            }
+
+            .message {
+                padding: 25px 18px;
+            }
+
+            .message p {
+                font-size: 16px;
+            }
+
+            .quote {
+                font-size: 22px;
+            }
+
+            .tag {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="stars" id="stars"></div>
+
+
+    <div class="container">
+
+        <!-- Teacher Icon -->
+        <div class="teacher-icon">
+            👨‍🏫
+        </div>
+
+
+        <!-- Subtitle -->
+        <div class="tag">
+            A Special Tribute
+        </div>
+
+
+        <!-- Main Heading -->
+        <h1>
+            Happy Teacher's Day
+        </h1>
+
+
+        <!-- Teacher Name -->
+        <div class="sir-name">
+            <strong>Sharan Sir</strong>
+        </div>
+
+
+        <!-- Typing Animation -->
+        <div class="typing" id="typing"></div>
+
+
+        <!-- Thank You Message -->
+        <div class="message">
+
+            <h2>
+                🌟 Thank You, Sharan Sir!
+            </h2>
+
+            <p>
+                You didn't just come to teach us technology.
+                You came to help us prepare for our future.
+            </p>
+
+            <br>
+
+            <p>
+                Your guidance and training have helped us
+                understand the skills that truly matter
+                for our placements and careers.
+            </p>
+
+            <br>
+
+            <p>
+                From <strong>Linux</strong> to
+                <strong>Git & GitHub</strong>,
+                from <strong>Cloud</strong> to
+                <strong>Python</strong>,
+                and from <strong>SQL</strong> to
+                <strong>Artificial Intelligence</strong>,
+                you introduced us to technologies
+                that can shape our future.
+            </p>
+
+            <br>
+
+            <p>
+                Your support, patience and practical guidance
+                have given us more confidence to face the
+                placement journey.
+            </p>
+
+        </div>
+
+
+        <!-- Skills Heading -->
+        <h2 class="section-title">
+            💻 Technologies You Taught Us
+        </h2>
+
+
+        <!-- Skills -->
+        <div class="skills">
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🐧
+                </div>
+
+                <h3>
+                    Linux
+                </h3>
+
+                <p>
+                    Command line & system skills
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    Git & GitHub
+                </h3>
+
+                <p>
+                    Version control & collaboration
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    Cloud
+                </h3>
+
+                <p>
+                    Cloud computing fundamentals
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🐍
+                </div>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+                    Programming & problem solving
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🗄️
+                </div>
+
+                <h3>
+                    SQL
+                </h3>
+
+                <p>
+                    Database & data management
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
+
+                <p>
+                    Exploring the future of technology
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Quote -->
+        <div class="quote">
+
+            "A great teacher doesn't just prepare
+            students for exams,
+            <span>they prepare students for life.</span>"
+
+        </div>
+
+
+        <!-- Button -->
+        <button class="celebrate" onclick="celebrate()">
+
+            🎉 Thank You, Sharan Sir!
+
+        </button>
+
+
+        <!-- Footer -->
+        <footer>
+
+            Made with appreciation by your students
+
+            <br>
+
+            <strong>
+                Happy Teacher's Day, Sharan Sir!
+            </strong>
+
+        </footer>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           CREATE BACKGROUND STARS
+        ========================= */
+
+        const stars =
+            document.getElementById("stars");
+
+
+        for (let i = 0; i < 140; i++) {
+
+            const star =
+                document.createElement("div");
+
+            star.classList.add("star");
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+            star.style.animationDelay =
+                Math.random() * 2 + "s";
+
+            star.style.opacity =
+                Math.random();
+
+            stars.appendChild(star);
+        }
+
+
+        /* =========================
+           TYPING ANIMATION
+        ========================= */
+
+        const text =
+            "Thank you for guiding us towards our placement journey 🚀";
+
+        const typing =
+            document.getElementById("typing");
+
+        let index = 0;
+
+
+        function typeText() {
+
+            if (index < text.length) {
+
+                typing.innerHTML +=
+                    text.charAt(index);
+
+                index++;
+
+                setTimeout(
+                    typeText,
+                    55
+                );
+            }
+        }
+
+
+        typeText();
+
+
+        /* =========================
+           CELEBRATION EFFECT
+        ========================= */
+
+        function celebrate() {
+
+            const symbols = [
+                "🎉",
+                "⭐",
+                "✨",
+                "🎊",
+                "🌟",
+                "💻",
+                "🚀"
+            ];
+
+
+            for (let i = 0; i < 100; i++) {
+
+                const confetti =
+                    document.createElement("div");
+
+                confetti.classList.add(
+                    "confetti"
+                );
+
+                confetti.innerHTML =
+                    symbols[
+                    Math.floor(
+                        Math.random()
+                        * symbols.length
+                    )
+                    ];
+
+
+                confetti.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                confetti.style.fontSize =
+                    (15 +
+                        Math.random() * 20)
+                    + "px";
+
+
+                confetti.style.animationDuration =
+                    (2 +
+                        Math.random() * 3)
+                    + "s";
+
+
+                document.body.appendChild(
+                    confetti
+                );
+
+
+                setTimeout(() => {
+
+                    confetti.remove();
+
+                }, 5000);
+
+            }
+
+
+            alert(
+                "Thank you, Sharan Sir! 🎉\n\n" +
+                "Your guidance means a lot to us.\n" +
+                "Happy Teacher's Day!"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```
